@@ -37,24 +37,36 @@
             <!-- begin footer -->
 
             <div class="footer-pagination">
-                <div class="row">
-                    <div class="col-md-6"></div>
-
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-9" style="padding-left: 30%">
+                        <div class="row justify-content-between">
+                            <div class="col-auto"></div>
+                            <div class="col-auto me-auto" >
                                 
                                 <ngb-pagination [(page)]="thePageNumber"
                                                 [pageSize]="thePageSize"
                                                 [collectionSize]="theTotalElements"
+                                                [maxSize]="5"
+                                                [boundaryLinks]="true"
                                                 (pageChange)="listProducts()">
 
                                 </ngb-pagination>
                             
                             </div>
+
+                            <div class="col-auto">
+                                <span>Page Size </span>
+
+                                <select class="select-option" #pageSelect (change)='updatePageSize(pageSelect.value)'>
+                                    <option value=2>2</option>
+                                    <option value=5 selected="true">5</option>
+                                    <option value=10>10</option>
+                                    <option value=20>20</option>
+                                    <option value=50>50</option>
+                                </select>
+                            </div>
+
                         </div>
-                    </div>
-                </div>
+                    
+                
             </div>
 
             <!-- end footer -->
