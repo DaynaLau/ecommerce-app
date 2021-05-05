@@ -4,6 +4,7 @@
  * ----------------------------
  */
  @import url('https://unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css');
+ @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
  *{
     margin:0;
