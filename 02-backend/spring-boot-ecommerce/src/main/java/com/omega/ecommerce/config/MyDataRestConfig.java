@@ -1,9 +1,6 @@
 package com.omega.ecommerce.config;
 
-import com.omega.ecommerce.entity.Country;
-import com.omega.ecommerce.entity.Product;
-import com.omega.ecommerce.entity.ProductCategory;
-import com.omega.ecommerce.entity.State;
+import com.omega.ecommerce.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -37,15 +34,12 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         HttpMethod[] theUnsupportedActions = {HttpMethod.PUT, HttpMethod.POST,
                                                 HttpMethod.DELETE, HttpMethod.PATCH};
 
-        // disable HTTP methods for Product: PUT, POST and DELETE
+        // disable HTTP methods: PUT, POST and DELETE
         disableHttpMethods(Product.class, config, theUnsupportedActions);
-
-        // disable HTTP methods for ProductCategory: PUT, POST and DELETE
         disableHttpMethods(ProductCategory.class, config, theUnsupportedActions);
-
-        // disable HTTP methods for Country/State
         disableHttpMethods(Country.class, config, theUnsupportedActions);
         disableHttpMethods(State.class, config, theUnsupportedActions);
+        disableHttpMethods(Order.class, config, theUnsupportedActions);
 
         // call an internal helper method to expose ids
         exposeIds(config);
