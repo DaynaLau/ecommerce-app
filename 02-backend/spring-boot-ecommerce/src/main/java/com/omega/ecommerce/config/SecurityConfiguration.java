@@ -22,8 +22,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // add CORS filters
         http.cors();
 
-        // force a custom response body for 401's to make a friendlier response
+        // force a non-empty response body for 401's to make the response more friendly
         Okta.configureResourceServer401ResponseBody(http);
 
+        // disable CSRF since we are not using Cookies for session tracking
+        http.csrf().disable();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
